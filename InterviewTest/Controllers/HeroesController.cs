@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +10,7 @@ namespace InterviewTest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class HeroesController : ControllerBase
     {
         private Hero[] heroes = new Hero[] {
@@ -32,7 +34,7 @@ namespace InterviewTest.Controllers
         {
             return this.heroes;
         }
-
+        
         // GET: api/Heroes/5
         [HttpGet("{id}", Name = "Get")]
         public Hero Get(int id)
@@ -42,8 +44,18 @@ namespace InterviewTest.Controllers
 
         // POST: api/Heroes
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Hero hero, string action = "none")
         {
+
+            if (action == "evolve")
+            {
+                hero.evolve();
+                return Ok(hero);
+            }
+            else
+            {
+                return BadRequest("Null/Invalid action parameter");
+            }
         }
 
         // PUT: api/Heroes/5

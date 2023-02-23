@@ -1,0 +1,32 @@
+<div>
+  <h2 class="heading">Tour of Heroes</h2>
+  <div *ngIf="updatedStats">
+    <table>
+      {{ updatedStats }}
+  </table>
+</div>
+  <table>
+    <thead>
+
+        <th>Name</th>
+        <th>Power</th>
+        <th>Stats(Strength)</th>
+        <th>Stats(Intelligence)</th>
+        <th>Stats(Stamina)</th>
+        <th></th>
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of heroes" [ngClass]="randomClass()">
+        <td>{{ hero.name }}</td>
+        <td>{{ hero.power }}</td>
+        <td *ngFor="let stat of hero.stats">
+          <b>{{stat.value}}</b>
+        </td>
+        <td>
+          <button type="button" (click)="evolveHero(hero)">evolve</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

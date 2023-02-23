@@ -1,0 +1,43 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .heading {
+    text-align: center;
+    color: blue;
+  }
+  
+  .skyblue {
+    font-weight: bold;
+    color: skyblue;
+    background-color: blueviolet;
+  }
+  
+  .teal {
+    font-weight: bolder;
+    color: teal;
+    background-color: darkred;
+  }
+  
+  .yellow {
+    font-weight: lighter;
+    color: yellow;
+    background-color: darkblue;
+  }
+  
+  .pink {
+    font-weight: normal;
+    color: pink;
+    background-color: lightgrey;
+  }
+
+  // Add a random color class to the list of heroes
+  // Not sure if we were meant to select a random color or have the application select a random color on page refresh/onclick evolve function
